@@ -8,10 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      keyframes: {
+        vanish: {
+          '0%': { opacity: '1' },
+          '20%': { opacity: '0.8' },
+          '40%': { opacity: '0.6' },
+          '60%': { opacity: '0.4' },
+          '80%': { opacity: '0.2' },
+          '100%': { opacity: '0' },
+        },
+      },
+      animation: {
+        vanish: 'vanish 2s ease-in-out forwards',
       },
     },
   },
