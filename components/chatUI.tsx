@@ -17,10 +17,10 @@ const ChatUI  = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-gray-100 items-center justify-center">
+    <div className="relative flex flex-col h-[100dvh] md:h-screen  bg-gray-100 items-center justify-center overflow-hidden ">
       {!vanishComplete ? (
         <div
-          className={`w-full h-full  bg-white shadow-lg rounded-lg transition-transform duration-500 ease-in-out transform ${
+          className={` h-full bg-white shadow-lg rounded-lg transition-transform duration-500 ease-in-out transform ${
             chatVisible ? 'scale-100 opacity-100' : 'animate-vanish'
           }`}
         >
