@@ -112,7 +112,7 @@ const ChatUI = () => {
         </div>
       ) : (
         <div className="text-2xl text-gray-500 text-center">
-          Your Message has been sent! Thank you!!!<br/>You will recieve blessings Soon.
+          Your Message has been sent! Thank you!!!<br/>You will receive blessings Soon.
         </div>
       )}
     </div>
