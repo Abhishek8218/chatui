@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ChatUI = () => {
   const [message, setMessage] = useState('');
@@ -11,6 +11,7 @@ const ChatUI = () => {
 
   const handleSend = () => {
     if (message.trim() !== '') {
+      console.log('Message:', message);
       setShowModal(true); // Show the confirmation modal
     }
   };
@@ -27,6 +28,28 @@ const ChatUI = () => {
   const handleCancel = () => {
     setShowModal(false); // Hide the modal
   };
+
+
+
+  // Add useEffect to handle Enter key press
+useEffect(() => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      
+      if (showModal) {
+        handleConfirm();
+      } else {
+        handleSend();
+      }
+    }
+  };
+
+  window.addEventListener('keydown', handleKeyDown);
+
+  return () => {
+    window.removeEventListener('keydown', handleKeyDown);
+  };
+}, [message, showModal]);
 
   return (
     <div className="relative flex flex-col h-[100dvh] md:h-screen w-full bg-gray-100 items-center justify-center overflow-hidden">
